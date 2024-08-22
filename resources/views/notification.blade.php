@@ -13,6 +13,7 @@
     $hasDate = filled($date);
     $body = $getBody();
     $hasBody = filled($body);
+    $duration=$getDuration();
 @endphp
 
 
@@ -116,23 +117,9 @@
     </div>
 
     <!-- Progress Bar -->
-    @if($duration !== 'persistent')
-
-
-
-    <div
-        class="relative w-full bg-slate-200 h-1 rounded-full"
-
-{{--        x-data="{ progress: 0, isShown: false }"--}}
-{{--        x-init="isShown = true; progress = 0;"--}}
-{{--    x-show="isShown"--}}
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="opacity-0"
-    x-transition:enter-end="opacity-100"
-    x-transition:leave="transition ease-in duration-300"
-    x-transition:leave-start="opacity-100"
-    x-transition:leave-end="opacity-0"
-    >
+    @if($duration!='persistent')
+        <div
+            class="relative w-full bg-slate-200 h-1 rounded-full">
     <span class="block relative w-full h-full rounded-full  ">
             <span
                 @class([
@@ -148,6 +135,6 @@
                 :style="`width: ${progress}%`"
             ></span>
         </span>
-    </div>
+        </div>
     @endif
 </x-wnotifications::notification>
