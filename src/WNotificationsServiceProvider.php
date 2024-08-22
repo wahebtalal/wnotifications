@@ -1,7 +1,8 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Wahebtalal\WNotifications;
 
+use Filament\Notifications\Notification;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -13,14 +14,14 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
+use Wahebtalal\WNotifications\Commands\WNotificationsCommand;
+use Wahebtalal\WNotifications\Testing\TestsWNotifications;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class WNotificationsServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'wnotifications';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'wnotifications';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +37,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('wahebtalal/wnotifications');
             });
 
         $configFileName = $package->shortName();
@@ -60,6 +61,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+//        $this->app->bind(Notification::class, WNotifications::class);
     }
 
     public function packageBooted(): void
@@ -79,21 +81,21 @@ class SkeletonServiceProvider extends PackageServiceProvider
         FilamentIcon::register($this->getIcons());
 
         // Handle Stubs
-        if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
-            }
-        }
+        //        if (app()->runningInConsole()) {
+        //            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+        //                $this->publishes([
+        //                    $file->getRealPath() => base_path("stubs/wnotifications/{$file->getFilename()}"),
+        //                ], 'wnotifications-stubs');
+        //            }
+        //        }
 
         // Testing
-        Testable::mixin(new TestsSkeleton());
+//        Testable::mixin(new TestsWNotifications);
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'wahebtalal/wnotifications';
     }
 
     /**
@@ -102,9 +104,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('wnotifications', __DIR__ . '/../resources/dist/components/wnotifications.js'),
+            Css::make('wnotifications-styles', __DIR__ . '/../resources/dist/wnotifications.css'),
+            Js::make('wnotifications-scripts', __DIR__ . '/../resources/dist/wnotifications.js'),
         ];
     }
 
@@ -114,7 +116,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            WNotificationsCommand::class,
         ];
     }
 
@@ -148,7 +150,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            //            'create_wnotifications_table',
         ];
     }
 }

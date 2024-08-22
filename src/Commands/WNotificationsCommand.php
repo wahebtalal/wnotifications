@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Wahebtalal\WNotifications\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class WNotificationsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'wnotifications';
 
     public $description = 'My command';
 
