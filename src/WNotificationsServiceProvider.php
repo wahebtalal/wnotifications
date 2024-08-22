@@ -61,7 +61,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-//        $this->app->bind(Notification::class, WNotifications::class);
+        //        $this->app->bind(Notification::class, WNotifications::class);
     }
 
     public function packageBooted(): void
@@ -90,7 +90,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
         //        }
 
         // Testing
-//        Testable::mixin(new TestsWNotifications);
+        //        Testable::mixin(new TestsWNotifications);
     }
 
     protected function getAssetPackageName(): ?string
