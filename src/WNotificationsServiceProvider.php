@@ -112,7 +112,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-//            WNotificationsCommand::class,
+            //            WNotificationsCommand::class,
         ];
     }
 
