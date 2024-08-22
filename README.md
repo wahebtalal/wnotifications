@@ -17,12 +17,7 @@ You can install the package via composer:
 composer require wahebtalal/wnotifications
 ```
 
-You can publish and run the migrations with:
 
-```bash
-php artisan vendor:publish --tag="wnotifications-migrations"
-php artisan migrate
-```
 
 You can publish the config file with:
 
@@ -44,10 +39,13 @@ return [
 ```
 
 ## Usage
+### register WNotifications in AppServiceProvider
 
 ```php
-$wNotifications = new Wahebtalal\WNotifications();
-echo $wNotifications->echoPhrase('Hello, Wahebtalal!');
+use Filament\Notifications\Notification;
+use Wahebtalal\WNotifications\WNotifications;
+
+$this->app->bind(Notification::class, WNotifications::class);
 ```
 
 ## Testing
