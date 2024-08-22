@@ -2,12 +2,11 @@
 @tailwind utilities;
 @tailwind components;
 .WBlur{
-   @apply backdrop-blur-sm;
-   @apply bg-white/30;
+   @apply backdrop-blur-sm bg-white/60  dark:bg-gray-900/60;
 }
 
 .Wbase{
-   @apply relative w-full bg-slate-200 h-1 rounded-full
+   @apply relative w-full bg-slate-200 h-1 rounded-full dark:bg-slate-800
 }
 .WSpan{
    @apply block relative w-full h-full rounded-full
