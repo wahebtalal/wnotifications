@@ -17,12 +17,6 @@ You can install the package via composer:
 composer require wahebtalal/wnotifications
 ```
 
-```editorconfig
-"./vendor/wahebtalal/wnotifications/resources/views/**/*.blade.php"
-
-```
-
-
 You can publish the config file with:
 
 ```bash
@@ -35,21 +29,17 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="wnotifications-views"
 ```
 
-This is the contents of the published config file:
 
-```php
-return [
-];
-```
 
 ## Usage
+
 ### register WNotifications in AppServiceProvider
 
 ```php
 use Filament\Notifications\Notification;
-use Wahebtalal\WNotifications\WNotifications;
+use Wahebtalal\WNotifications\WNotification;
 
-$this->app->bind(Notification::class, WNotifications::class);
+$this->app->bind(Notification::class, WNotification::class);
 ```
 
 ## Testing

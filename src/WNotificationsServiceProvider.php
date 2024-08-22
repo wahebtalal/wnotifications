@@ -2,16 +2,17 @@
 
 namespace Wahebtalal\WNotifications;
 
-use Filament\Notifications\Notification;
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
+use Livewire\Features\SupportTesting\Testable;
+use ReflectionException;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Wahebtalal\WNotifications\Testing\TestsWNotifications;
 
 class WNotificationsServiceProvider extends PackageServiceProvider
 {
@@ -57,9 +58,12 @@ class WNotificationsServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        //        $this->app->bind(Notification::class, WNotifications::class);
+        //        $this->app->bind(Notification::class, WNotification::class);
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function packageBooted(): void
     {
         // Asset Registration
@@ -76,17 +80,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
         // Icon Registration
         FilamentIcon::register($this->getIcons());
 
-        // Handle Stubs
-        //        if (app()->runningInConsole()) {
-        //            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-        //                $this->publishes([
-        //                    $file->getRealPath() => base_path("stubs/wnotifications/{$file->getFilename()}"),
-        //                ], 'wnotifications-stubs');
-        //            }
-        //        }
-
-        // Testing
-        //        Testable::mixin(new TestsWNotifications);
+        Testable::mixin(new TestsWNotifications);
     }
 
     protected function getAssetPackageName(): ?string
@@ -100,7 +94,6 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('wnotifications', __DIR__ . '/../resources/dist/components/wnotifications.js'),
             Css::make('wnotifications-styles', __DIR__ . '/../resources/dist/wnotifications.css'),
             Js::make('wnotifications-scripts', __DIR__ . '/../resources/dist/wnotifications.js'),
         ];

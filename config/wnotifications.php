@@ -1,6 +1,6 @@
 <?php
 
-// config for Wahebtalal/WNotifications
+// config for Wahebtalal/WNotification
 return [
 
 ];
