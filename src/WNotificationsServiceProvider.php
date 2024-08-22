@@ -9,13 +9,9 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
-use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Wahebtalal\WNotifications\Commands\WNotificationsCommand;
-use Wahebtalal\WNotifications\Testing\TestsWNotifications;
 
 class WNotificationsServiceProvider extends PackageServiceProvider
 {
@@ -116,7 +112,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            WNotificationsCommand::class,
+//            WNotificationsCommand::class,
         ];
     }
 

@@ -49,7 +49,7 @@
                 'fi-inline',
             ],
             false => [
-                'max-w-sm rounded-xl backdrop-blur-sm bg-white/30  shadow-lg ring-1 dark:bg-gray-900',
+                'max-w-sm rounded-xl WBlur shadow-lg ring-1 dark:bg-gray-900',
                 match ($color) {
                     'gray' => 'ring-gray-950/5 dark:ring-white/10',
                     default => 'fi-color-custom ring-custom-600/20 dark:ring-custom-400/30',
@@ -119,8 +119,8 @@
     <!-- Progress Bar -->
     @if($duration!='persistent')
         <div
-            class="relative w-full bg-slate-200 h-1 rounded-full">
-    <span class="block relative w-full h-full rounded-full  ">
+            class="Wbase">
+    <span class="WSpan  ">
             <span
                 @class([
                 match ($status) {
@@ -130,7 +130,7 @@
                     'info' => 'bg-info-500',
                     default => 'bg-indigo-500',
                 },
-                'absolute inset-0  rounded-[inherit]'
+                'Wprogress'
                 ])
                 :style="`width: ${progress}%`"
             ></span>

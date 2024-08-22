@@ -1,1 +1,18 @@
-/*@import '../../vendor/filament/filament/resources/css/theme.css';*/
+/*@import '../../vendor/filament/support/theme.css';*/
+@tailwind utilities;
+@tailwind components;
+.WBlur{
+   @apply backdrop-blur-sm;
+   @apply bg-white/30;
+}
+
+.Wbase{
+   @apply relative w-full bg-slate-200 h-1 rounded-full
+}
+.WSpan{
+   @apply block relative w-full h-full rounded-full
+}
+
+.Wprogress{
+   @apply absolute inset-0  rounded-[inherit]
+}

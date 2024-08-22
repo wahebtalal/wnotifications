@@ -17,6 +17,10 @@ You can install the package via composer:
 composer require wahebtalal/wnotifications
 ```
 
+```editorconfig
+"./vendor/wahebtalal/wnotifications/resources/views/**/*.blade.php"
+
+```
 
 
 You can publish the config file with:
