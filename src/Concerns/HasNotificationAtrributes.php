@@ -19,6 +19,4 @@ trait HasNotificationAtrributes
     {
         return $this->progressColor;
     }
-
-
 }

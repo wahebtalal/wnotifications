@@ -171,7 +171,7 @@ class DatabaseNotifications extends Component
 
     public function render(): View
     {
-//       return view('wnotifications::database-notifications');
+        //       return view('wnotifications::database-notifications');
         return view('filament-notifications::database-notifications');
     }
 }

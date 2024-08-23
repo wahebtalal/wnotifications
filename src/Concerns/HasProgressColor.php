@@ -19,6 +19,4 @@ trait HasProgressColor
     {
         return $this->progressColor;
     }
-
-
 }

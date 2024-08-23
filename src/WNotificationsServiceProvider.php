@@ -5,7 +5,6 @@ namespace Wahebtalal\WNotifications;
 //use Filament\Notifications\Testing\TestsNotifications;
 use Filament\Notifications\Livewire\Notifications;
 use Filament\Notifications\Notification;
-use Filament\Notifications\NotificationsServiceProvider;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -70,8 +69,8 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     public function packageRegistered(): void
     {
         $this->app->bind(Notification::class, WNotificationNotifications::class);
-//        $this->app->bind(\Filament\Notifications\Collection::class, Collection::class);
-//        $this->app->bind(\Filament\Livewire\Notifications::class, \Wahebtalal\WNotifications\Livewire\WNotifications::class);
+        //        $this->app->bind(\Filament\Notifications\Collection::class, Collection::class);
+        //        $this->app->bind(\Filament\Livewire\Notifications::class, \Wahebtalal\WNotifications\Livewire\WNotifications::class);
     }
 
     /**
@@ -79,29 +78,29 @@ class WNotificationsServiceProvider extends PackageServiceProvider
      */
     public function packageBooted(): void
     {
-//        FilamentAsset::register([
-//            Js::make('wnotifications', __DIR__ . '/../resources/dist/wnotifications.js'),
-//        ], 'wahebtalal/wnotifications');
-//
-//        Livewire::component('database-notifications', DatabaseNotifications::class);
-//
-//        Livewire::component('notifications', WNotifications::class);
-//
-//        on('dehydrate', function (Component $component) {
-//            if (! Livewire::isLivewireRequest()) {
-//                return;
-//            }
-//
-//            if (store($component)->has('redirect')) {
-//                return;
-//            }
-//
-//            if (count(session()->get('filament.notifications') ?? []) <= 0) {
-//                return;
-//            }
-//
-//            $component->dispatch('wnotificationsSent');
-//        });
+        //        FilamentAsset::register([
+        //            Js::make('wnotifications', __DIR__ . '/../resources/dist/wnotifications.js'),
+        //        ], 'wahebtalal/wnotifications');
+        //
+        //        Livewire::component('database-notifications', DatabaseNotifications::class);
+        //
+        //        Livewire::component('notifications', WNotifications::class);
+        //
+        //        on('dehydrate', function (Component $component) {
+        //            if (! Livewire::isLivewireRequest()) {
+        //                return;
+        //            }
+        //
+        //            if (store($component)->has('redirect')) {
+        //                return;
+        //            }
+        //
+        //            if (count(session()->get('filament.notifications') ?? []) <= 0) {
+        //                return;
+        //            }
+        //
+        //            $component->dispatch('wnotificationsSent');
+        //        });
 
         Testable::mixin(new TestsNotifications);
         // Asset Registration

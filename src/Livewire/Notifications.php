@@ -10,7 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Attributes\On;
-use Livewire\Component;
+
 //use Wahebtalal\WNotifications\Collection;
 //use Wahebtalal\WNotifications\WNotification as Notification;
 
@@ -19,7 +19,7 @@ class Notifications extends \Filament\Notifications\Livewire\Notifications
     // Used to check if Livewire messages should trigger notification animations.
     public bool $isFilamentNotificationsComponent = true;
 
-//    public Collection $notifications;
+    //    public Collection $notifications;
     public static Alignment $alignment = Alignment::Right;
 
     public static VerticalAlignment $verticalAlignment = VerticalAlignment::Start;
@@ -123,7 +123,7 @@ class Notifications extends \Filament\Notifications\Livewire\Notifications
 
     public function render(): View
     {
-//       return view('wnotifications::notifications');
+        //       return view('wnotifications::notifications');
         return view('filament-notifications::notifications');
     }
 }
