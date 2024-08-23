@@ -122,7 +122,10 @@ export default (Alpine) => {
                     clearInterval(this.progressInterval)
                     return
                 }
-                this.progress += increment
+                if (!this.$el.matches(':hover')) {
+                    this.progress += increment
+                }
+
             }, interval)
         },
 
