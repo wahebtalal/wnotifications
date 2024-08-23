@@ -24,6 +24,16 @@ class WNotification {
 
         return this
     }
+    isProgress(isProgress) {
+        this.isProgress = isProgress??true
+
+        return this
+    }
+    isBlur(isBlur) {
+        this.isBlur = isBlur??true
+
+        return this
+    }
 
     body(body) {
         this.body = body
@@ -117,7 +127,7 @@ class WNotification {
 
     send() {
         window.dispatchEvent(
-            new CustomEvent('WnotificationSent', {
+            new CustomEvent('notificationSent', {
                 detail: {
                     notification: this,
                 },

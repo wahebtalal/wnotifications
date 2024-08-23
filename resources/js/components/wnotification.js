@@ -113,7 +113,6 @@ export default (Alpine) => {
             )
         },
         startProgressBar: function (duration) {
-            console.log(notification)
             this.progress = 0
             const interval =notification.intervalDelay; // 16ms is approximately 60fps
             const increment = (100 / duration) * interval;
@@ -123,7 +122,6 @@ export default (Alpine) => {
                     clearInterval(this.progressInterval)
                     return
                 }
-                console.log(interval)
                 this.progress += increment
             }, interval)
         },
