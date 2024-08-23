@@ -2,17 +2,28 @@
 
 namespace Wahebtalal\WNotifications;
 
+//use Filament\Notifications\Testing\TestsNotifications;
+use Filament\Notifications\Livewire\Notifications;
+use Filament\Notifications\Notification;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
+use Livewire\Component;
 use Livewire\Features\SupportTesting\Testable;
+use Livewire\Livewire;
 use ReflectionException;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Wahebtalal\WNotifications\Testing\TestsWNotifications;
+use Wahebtalal\WNotifications\Livewire\DatabaseNotifications;
+use Wahebtalal\WNotifications\Livewire\WNotifications;
+use Wahebtalal\WNotifications\Testing\TestsWNotifications as TestsNotifications;
+use Wahebtalal\WNotifications\WNotification as WNotificationNotifications;
+
+use function Livewire\on;
+use function Livewire\store;
 
 class WNotificationsServiceProvider extends PackageServiceProvider
 {
@@ -38,7 +49,6 @@ class WNotificationsServiceProvider extends PackageServiceProvider
             });
 
         $configFileName = $package->shortName();
-
         if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
             $package->hasConfigFile();
         }
@@ -58,7 +68,9 @@ class WNotificationsServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        //        $this->app->bind(Notification::class, WNotification::class);
+        $this->app->bind(Notification::class, WNotificationNotifications::class);
+        //        $this->app->bind(\Filament\Notifications\Collection::class, Collection::class);
+        //        $this->app->bind(\Filament\Livewire\Notifications::class, \Wahebtalal\WNotifications\Livewire\WNotifications::class);
     }
 
     /**
@@ -66,6 +78,31 @@ class WNotificationsServiceProvider extends PackageServiceProvider
      */
     public function packageBooted(): void
     {
+        //        FilamentAsset::register([
+        //            Js::make('wnotifications', __DIR__ . '/../resources/dist/wnotifications.js'),
+        //        ], 'wahebtalal/wnotifications');
+        //
+        //        Livewire::component('database-notifications', DatabaseNotifications::class);
+        //
+        //        Livewire::component('notifications', WNotifications::class);
+        //
+        //        on('dehydrate', function (Component $component) {
+        //            if (! Livewire::isLivewireRequest()) {
+        //                return;
+        //            }
+        //
+        //            if (store($component)->has('redirect')) {
+        //                return;
+        //            }
+        //
+        //            if (count(session()->get('filament.notifications') ?? []) <= 0) {
+        //                return;
+        //            }
+        //
+        //            $component->dispatch('wnotificationsSent');
+        //        });
+
+        Testable::mixin(new TestsNotifications);
         // Asset Registration
         FilamentAsset::register(
             $this->getAssets(),
@@ -80,7 +117,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
         // Icon Registration
         FilamentIcon::register($this->getIcons());
 
-        Testable::mixin(new TestsWNotifications);
+        //        Testable::mixin(new TestsWNotifications);
     }
 
     protected function getAssetPackageName(): ?string

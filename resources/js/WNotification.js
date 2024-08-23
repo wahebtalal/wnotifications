@@ -19,6 +19,12 @@ class WNotification {
         return this
     }
 
+    intervalDelay(intervalDelay) {
+        this.intervalDelay = intervalDelay
+
+        return this
+    }
+
     body(body) {
         this.body = body
 
@@ -111,7 +117,7 @@ class WNotification {
 
     send() {
         window.dispatchEvent(
-            new CustomEvent('notificationSent', {
+            new CustomEvent('WnotificationSent', {
                 detail: {
                     notification: this,
                 },

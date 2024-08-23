@@ -14,6 +14,7 @@
     $body = $getBody();
     $hasBody = filled($body);
     $duration=$getDuration();
+    $intervalDelay=$getIntervalDelay();
 @endphp
 
 
@@ -115,10 +116,10 @@
 
         <x-wnotifications::close-button/>
     </div>
-
     <!-- Progress Bar -->
     @if($duration!='persistent')
         <div
+
             class="Wbase">
     <span class="WSpan  ">
             <span
