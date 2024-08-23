@@ -10,6 +10,7 @@ export default (Alpine) => {
         transitionEasing: null,
 
         init: function () {
+
             this.computedStyle = window.getComputedStyle(this.$el)
 
             this.transitionDuration =
@@ -22,19 +23,10 @@ export default (Alpine) => {
 
             if (notification.duration && notification.duration !== 'persistent') {
                 this.startProgressBar(notification.duration)
-
-                setTimeout(() => {
-                    if (!this.$el.matches(':hover')) {
-                        this.close()
-
-                        return
-                    }
-
-                    this.$el.addEventListener('mouseleave', () => this.close())
-                }, notification.duration)
             }
 
             this.isShown = true
+
         },
 
         configureTransitions: function () {
@@ -121,22 +113,31 @@ export default (Alpine) => {
             )
         },
         startProgressBar: function (duration) {
+            console.log(notification)
             this.progress = 0
-            const interval = 16; // 16ms is approximately 60fps
+            const interval =notification.intervalDelay; // 16ms is approximately 60fps
             const increment = (100 / duration) * interval;
             this.progressInterval = setInterval(() => {
                 if (this.progress >= 100) {
+                    this.prepareClose()
                     clearInterval(this.progressInterval)
                     return
                 }
+                console.log(interval)
                 this.progress += increment
             }, interval)
         },
 
+        prepareClose: function () {
+                if (!this.$el.matches(':hover')) {
+                    this.close()
+                    return
+                }
+                this.$el.addEventListener('mouseleave', () => this.close())
+        },
 
         close: function () {
             this.isShown = false
-            setTimeout(() => clearInterval(this.progressInterval), this.transitionDuration)   // Stop progress bar timer
 
             setTimeout(
                 () =>
@@ -149,6 +150,8 @@ export default (Alpine) => {
                     ),
                 this.transitionDuration,
             )
+            setTimeout(() => clearInterval(this.progressInterval), this.transitionDuration)   // Stop progress bar timer
+
         },
 
         markAsRead: function () {

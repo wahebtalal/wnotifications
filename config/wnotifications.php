@@ -1,6 +1,7 @@
 <?php
 
-// config for Wahebtalal/WNotification
+// config for Wahebtalal/wnotifications
 return [
-
+    // 16ms is approximately 60fps
+    'progressColor'=>16
 ];
