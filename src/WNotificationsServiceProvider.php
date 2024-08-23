@@ -64,7 +64,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-//            WNotificationsCommand::class,
+            //            WNotificationsCommand::class,
         ];
     }
 
@@ -121,7 +121,6 @@ class WNotificationsServiceProvider extends PackageServiceProvider
             Js::make('wnotifications-scripts', __DIR__ . '/../resources/dist/wnotifications.js'),
         ];
     }
-
 
     /**
      * @return array<string, mixed>
