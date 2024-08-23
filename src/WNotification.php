@@ -54,6 +54,4 @@ class WNotification extends BaseNotification
 
         return parent::fromArray($data);
     }
-
-
 }

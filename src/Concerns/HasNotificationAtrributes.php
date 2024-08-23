@@ -8,7 +8,6 @@ trait HasNotificationAtrributes
 {
     protected int | string | Closure $progressColor = 16;
 
-
     public function progressColor(string | Closure | null $progressColor): static
     {
         $this->progressColor = $progressColor;
@@ -20,6 +19,4 @@ trait HasNotificationAtrributes
     {
         return $this->progressColor;
     }
-
-
 }

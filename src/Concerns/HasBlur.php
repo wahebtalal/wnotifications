@@ -13,7 +13,7 @@ trait HasBlur
         return $this->isBlur;
     }
 
-    public function isBlur(bool | Closure | string $isBlur=true): static
+    public function isBlur(bool | Closure | string $isBlur = true): static
     {
         $this->isBlur = $isBlur;
 

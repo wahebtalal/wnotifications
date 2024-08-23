@@ -128,7 +128,7 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     {
         return [
             Css::make('wnotifications-styles', __DIR__ . '/../resources/dist/wnotifications.css'),
-                        Js::make('wnotifications-scripts', __DIR__ . '/../resources/dist/wnotifications.js'),
+            Js::make('wnotifications-scripts', __DIR__ . '/../resources/dist/wnotifications.js'),
         ];
     }
 
