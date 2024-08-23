@@ -15,6 +15,8 @@
     $hasBody = filled($body);
     $duration=$getDuration();
     $intervalDelay=$getIntervalDelay();
+    $isBlur=$getIsBlur();
+    $isProgress=$getisProgress();
 @endphp
 
 
@@ -50,13 +52,14 @@
                 'fi-inline',
             ],
             false => [
-                'max-w-sm rounded-xl WBlur shadow-lg ring-1',
+                'max-w-sm rounded-xl  shadow-lg ring-1',
                 match ($color) {
                     'gray' => 'ring-gray-950/5 dark:ring-white/10',
                     default => 'fi-color-custom ring-custom-600/20 dark:ring-custom-400/30',
                 },
                 is_string($color) ? 'fi-color-' . $color : null,
                 'fi-status-' . $status => $status,
+                $isBlur?'WBlur':'WnoBlur'
             ],
         },
     ])
@@ -117,7 +120,7 @@
         <x-wnotifications::close-button/>
     </div>
     <!-- Progress Bar -->
-    @if($duration!='persistent')
+    @if($duration!='persistent'&&$isProgress)
         <div
 
             class="Wbase">

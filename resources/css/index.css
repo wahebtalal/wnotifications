@@ -5,6 +5,10 @@
    @apply backdrop-blur-sm bg-white/60  dark:bg-gray-900/60;
 }
 
+ .WnoBlur{
+   @apply  bg-white  dark:bg-gray-900;
+}
+
 .Wbase{
    @apply relative w-full bg-slate-200 h-1 rounded-full dark:bg-slate-800
 }

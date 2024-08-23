@@ -73,6 +73,7 @@ export default (Alpine) => {
                         !component.snapshot.data
                             .isFilamentNotificationsComponent
                     ) {
+                        console.log('false isFilamentNotificationsComponent')
                         return
                     }
 
