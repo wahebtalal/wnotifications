@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class WNotificationsCommand extends Command
 {
-    public $signature = 'WN:Install';
+    public $signature = 'WN:Publish';
 
     public $description = 'Prepare for WNotification';
 
