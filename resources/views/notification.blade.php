@@ -16,7 +16,7 @@
     $duration=$getDuration();
     $intervalDelay=$getIntervalDelay();
     $isBlur=$getIsBlur();
-    $isProgress=$getisProgress();
+    $isProgress=$getIsProgress();
 @endphp
 
 

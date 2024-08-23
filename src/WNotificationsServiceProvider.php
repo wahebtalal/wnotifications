@@ -9,18 +9,13 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
-use Livewire\Component;
 use Livewire\Features\SupportTesting\Testable;
-use Livewire\Livewire;
 use ReflectionException;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Wahebtalal\WNotifications\Livewire\WNotifications;
+use Wahebtalal\WNotifications\Commands\WNotificationsCommand;
 use Wahebtalal\WNotifications\Testing\TestsWNotifications;
-
-use function Livewire\on;
-use function Livewire\store;
 
 class WNotificationsServiceProvider extends PackageServiceProvider
 {
@@ -63,11 +58,29 @@ class WNotificationsServiceProvider extends PackageServiceProvider
         }
     }
 
+    /**
+     * @return array<class-string>
+     */
+    protected function getCommands(): array
+    {
+        return [
+//            WNotificationsCommand::class,
+        ];
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getMigrations(): array
+    {
+        return [
+            //            'create_wnotifications_table',
+        ];
+    }
+
     public function packageRegistered(): void
     {
         $this->app->bind(Notification::class, WNotification::class);
-        //        $this->app->bind(\Filament\Notifications\Collection::class, Collection::class);
-        //        $this->app->bind(\Filament\Livewire\Notifications::class, \Wahebtalal\WNotifications\Livewire\WNotifications::class);
     }
 
     /**
@@ -75,29 +88,6 @@ class WNotificationsServiceProvider extends PackageServiceProvider
      */
     public function packageBooted(): void
     {
-        //        FilamentAsset::register([
-        //            Js::make('wnotifications', __DIR__ . '/../resources/dist/wnotifications.js'),
-        //        ], 'wahebtalal/wnotifications');
-        //
-        //        Livewire::component('database-notifications', DatabaseNotifications::class);
-
-        //        Livewire::component('notifications', WNotifications::class);
-
-        //        on('dehydrate', function (Component $component) {
-        //            if (! Livewire::isLivewireRequest()) {
-        //                return;
-        //            }
-        //
-        //            if (store($component)->has('redirect')) {
-        //                return;
-        //            }
-        //
-        //            if (count(session()->get('filament.notifications') ?? []) <= 0) {
-        //                return;
-        //            }
-        //
-        //            $component->dispatch('notificationsSent');
-        //        });
 
         // Asset Registration
         FilamentAsset::register(
@@ -132,14 +122,13 @@ class WNotificationsServiceProvider extends PackageServiceProvider
         ];
     }
 
+
     /**
-     * @return array<class-string>
+     * @return array<string, mixed>
      */
-    protected function getCommands(): array
+    protected function getScriptData(): array
     {
-        return [
-            //            WNotificationsCommand::class,
-        ];
+        return [];
     }
 
     /**
@@ -156,23 +145,5 @@ class WNotificationsServiceProvider extends PackageServiceProvider
     protected function getRoutes(): array
     {
         return [];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function getScriptData(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getMigrations(): array
-    {
-        return [
-            //            'create_wnotifications_table',
-        ];
     }
 }

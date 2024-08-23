@@ -35,7 +35,7 @@ class WNotification extends BaseNotification
                 'extraProgressAttributes' => $this->getExtraProgressAttributes(),
                 'extraAttributes' => $this->getExtraAttributes(),
                 'isBlur' => $this->getIsBlur() ?? false,
-                'isProgress' => $this->getisProgress() ?? false,
+                'isProgress' => $this->getIsProgress() ?? false,
 
             ]
         );
@@ -52,6 +52,6 @@ class WNotification extends BaseNotification
         $static->isBlur($data['isBlur'] ?? config('wnotifications.Blur.all', false));
         $static->isProgress($data['isProgress'] ?? config('wnotifications.Progress.all', false));
 
-        return parent::fromArray($data);
+        return $static;
     }
 }

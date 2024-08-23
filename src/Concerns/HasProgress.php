@@ -8,7 +8,7 @@ trait HasProgress
 {
     protected bool | string | Closure $isProgress = false;
 
-    public function getisProgress(): bool | string | Closure
+    public function getIsProgress(): bool | string | Closure
     {
         return $this->isProgress;
     }

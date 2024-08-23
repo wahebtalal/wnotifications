@@ -5,10 +5,10 @@ return [
 
     'intervalDelay' => 16, // 16ms is approximately 60fps
     'Blur' => [
-        'all' => true,
+        'all' => false,
     ],
     'Progress' => [
-        'all' => true,
+        'all' => false,
     ],
 
 ];

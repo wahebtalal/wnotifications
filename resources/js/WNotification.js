@@ -24,13 +24,13 @@ class WNotification {
 
         return this
     }
-    hasProgress(hasProgress) {
-        this.hasProgress = hasProgress
+    isProgress(isProgress) {
+        this.isProgress = isProgress??true
 
         return this
     }
     isBlur(isBlur) {
-        this.isBlur = isBlur
+        this.isBlur = isBlur??true
 
         return this
     }
