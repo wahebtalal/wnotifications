@@ -17,5 +17,5 @@
 }
 
 .Wprogress{
-   @apply absolute inset-0  rounded-[inherit]
+   @apply absolute inset-0  rounded-[inherit] transition-all
 }

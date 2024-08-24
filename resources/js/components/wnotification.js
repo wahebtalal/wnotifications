@@ -114,6 +114,8 @@ export default (Alpine) => {
         },
         startProgressBar: function (duration) {
             this.progress = 0
+            // let t
+            var t=false;
             const interval =notification.intervalDelay; // 16ms is approximately 60fps
             const increment = (100 / duration) * interval;
             this.progressInterval = setInterval(() => {
@@ -122,9 +124,14 @@ export default (Alpine) => {
                     clearInterval(this.progressInterval)
                     return
                 }
-                if (!this.$el.matches(':hover')) {
-                    this.progress += increment
-                }
+                // if (!this.$el.matches(':hover')) {
+                    this.progress += increment;
+                // }else {
+                //
+                //         this.progress += increment/4;
+                //
+                //
+                // }
 
             }, interval)
         },
